@@ -1,15 +1,15 @@
 https://github.com/dcwmark/react-proxy.git
 
-mkdir [..]/react-proxy
-cd react-proxy
-create-react-app client
-mkdir server
-npm install nodemon --save-dev
-npm install express --save
-npm install mongoose --save
+1.mkdir [..]/react-proxy
+1.cd react-proxy
+1.create-react-app client
+1.mkdir server
+1.npm install nodemon --save-dev
+1.npm install express --save
+1.npm install mongoose --save
 
-cd [..]/react-proxy
-npm install concurrently --save-dev
-npm install express --save
+1.cd [..]/react-proxy
+1.npm install concurrently --save-dev
+1.npm install express --save
 
-npm run dev
+*npm run dev
