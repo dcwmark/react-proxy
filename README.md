@@ -31,11 +31,91 @@ react-proxy/package.json
 
 ## proxy
 
-react-proxy/package.json
+react-proxy/client/package.json
 
 ```javascript
 ...
   "proxy": "http://localhost:5000/",
 ...
 
+```
+
+## nodemon
+
+react-proxy/server/package.json
+
+```javascript
+...
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+...
+```
+
+## express routes
+
+react-proxy/server/server.js
+
+```javascript
+...
+let express = require('express'),
+    app = express(),
+...
+let commentsRoutes = require('./api/routes/comments');
+commentsRoutes(app);
+
+let postsRoutes = require('./api/routes/posts');
+postsRoutes(app);
+
+let todosRoutes = require('./api/routes/todos');
+todosRoutes(app);
+...
+```
+
+react-proxy/server/api/routes/comments/index.js
+
+```javascript
+...
+module.exports = (app) => {
+...
+    app.route('/api/comments')
+...
+```
+
+react-proxy/server/api/routes/posts/index.js
+
+```javascript
+...
+module.exports = (app) => {
+...
+    app.route('/api/posts')
+...
+```
+
+react-proxy/server/api/routes/todos/index.js
+
+```javascript
+...
+module.exports = (app) => {
+...
+    app.route('/api/todos')
+...
+```
+
+## node middleware -- body-parser
+
+react-proxy/server/server.js
+
+```javascript
+...
+    bodyParser = require('body-parser'),
+...
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+app.use(function(req, res) {
+  res.status(404).send({ url: req.originalUrl + ' not found' })
+});
+...
 ```

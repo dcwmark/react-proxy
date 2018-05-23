@@ -22,49 +22,49 @@ https://lorenstewart.me/2016/11/27/a-practical-guide-to-redux/
 
 /src/index.js
 ```javascript
-. . .
+...
 import { BrowserRouter } from "react-router-dom"
-. . .
+...
 ReactDOM.render(
     <BrowserRouter>
-. . .
+...
             <App />
-. . .
+...
     </BrowserRouter>
 ```
 
 /src/App.js
 ```javascript
-. . .
+...
 import { Link, Route } from "react-router-dom";
-. . .
+...
             <li><Link to="/">Homes</Link></li>
             <li><Link to="/comments">Comments</Link></li>
             <li><Link to="/posts">Posts</Link></li>
             <li><Link to="/todos">Todos</Link></li>
-. . .
+...
         <Route exact={ true } path="/" component={ Home }/>
         <Route path="/comments" component={ Comments }/>
         <Route path="/posts" component={ Posts }/>
         <Route path="/todos" component={ Todos }/>
-. . .
+...
 ```
 
 ## React Redux
 
 /src/index.js
 ```javascript
-. . .
+...
 import { Provider } from "react-redux"
 
 import store from "./States/Store"
-. . .
+...
 ReactDOM.render(
-. . .
+...
         <Provider store={ store }>
-. . .
+...
         </Provider>
-. . .
+...
 ```
 
 /src/States/Store/index.js
@@ -77,7 +77,7 @@ import promise from "redux-promise-middleware";
 const middleware = applyMiddleware(promise, thunk, logger;
 
 const reducers = combineReducers({
-. . .
+...
 export const store = createStore(reducers, middleware);
 ```
 
@@ -96,7 +96,7 @@ class Comments extends Component {
         this.props.fetchComments();
     }
 
-. . .
+...
 
                 <ul className="list-group list-group-flush">
                     { this.props.comments.length > 0 && this.props.comments.map( each => (
@@ -106,7 +106,7 @@ class Comments extends Component {
                     ) ) }
                 </ul>
 
-. . .
+...
 
 const mapStateToProps = state => {
     return state.comments;
@@ -136,7 +136,7 @@ export function fetchComments() {
 /src/States/Reducers/comments.js
 ```javascript
 
-. . .
+...
 
 const commentsReducer = ( state = initComments, action ) => {
     const stateChanger = {
@@ -149,7 +149,7 @@ const commentsReducer = ( state = initComments, action ) => {
                 comments: action.payload.data
             };
         },
-. . .
+...
 
     return stateChanger.hasOwnProperty(action.type) ? stateChanger[action.type]() : state;
 };
@@ -160,16 +160,16 @@ export default commentsReducer;
 
 /src/States/Store/index.js
 ```javascript
-. . .
+...
 
 const reducers = combineReducers({
     comments: commentsReducer
 
-. . .
+...
 
 import commentsReducer from '../Reducers/comments';
 
-. . .
+...
 ```
 
 ## Nothing but the Thunk
@@ -177,11 +177,11 @@ import commentsReducer from '../Reducers/comments';
 /src/Components/Posts/index.js
 ```javascript
 
-. . .
+...
 
 import { fetchPosts } from '../../States/Actions/posts';
 
-. . .
+...
 
 class Posts extends Component {
 
@@ -189,7 +189,7 @@ class Posts extends Component {
         this.props.fetchPosts();
     }
 
-. . .
+...
 
                     { this.props.posts.length > 0 && this.props.posts.map( each => (
                         <li className="list-group-item" key={each.id}>
@@ -198,7 +198,7 @@ class Posts extends Component {
                         </li>
                     ) ) }
 
-. . .
+...
 
 const mapDisptachToProps = {
     fetchPosts
@@ -215,7 +215,7 @@ import {
     FETCH_POST_SUCCESS,
 } from "../../Constants/actionTypes";
 
-. . .
+...
 
         axios.get('https://jsonplaceholder.typicode.com/posts')
             .then( (res) => {
@@ -235,12 +235,12 @@ import {
 /src/States/Reducers/posts.js
 ```javascript
 
-. . .
+...
 
 const postsReducer = ( state = initPosts, action ) => {
     const stateChanger = {
 
-. . .
+...
 
         FETCH_POST_SUCCESS: () => {
             return {
@@ -251,21 +251,21 @@ const postsReducer = ( state = initPosts, action ) => {
             };
         },
 
-. . .
+...
 
 ```
 
 /src/States/Store/index.js
 ```javascript
-. . .
+...
 
 import postsReducer from '../Reducers/posts';
 
-. . .
+...
 
 const reducers = combineReducers({
     comments: commentsReducer,
     posts: postsReducer,
 
-. . .
+...
 ```
