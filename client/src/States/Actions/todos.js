@@ -11,7 +11,8 @@ import axios from "axios";
 export function fetchTodos() {
     return (dispatch) => {
         dispatch({ type: FETCH_TODO_PENDING });
-        axios.get('https://jsonplaceholder.typicode.com/todos')
+        // axios.get('https://jsonplaceholder.typicode.com/todos')
+        axios.get('http://localhost:3000/api/todos')
         .then( (res) => {
             dispatch({
                 type: FETCH_TODO_SUCCESS,

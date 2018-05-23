@@ -1,4 +1,4 @@
-/* server/api/controllers/commentsComtroller.js */
+/* server/api/controllers/comments/index.js */
 
 'use strict';
 

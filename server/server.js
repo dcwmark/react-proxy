@@ -12,8 +12,14 @@ let express = require('express'),
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
 
-let commentsRoutes = require('./api/routes/commentsRoutes');
+let commentsRoutes = require('./api/routes/comments');
 commentsRoutes(app);
+
+let postsRoutes = require('./api/routes/posts');
+postsRoutes(app);
+
+let todosRoutes = require('./api/routes/todos');
+todosRoutes(app);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
