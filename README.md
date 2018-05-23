@@ -20,13 +20,13 @@ https://github.com/dcwmark/react-proxy.git
 react-proxy/package.json
 
 ```javascript
-. . .
+...
   "scripts": {
     "client": "cd client && npm start",
     "server": "cd server && nodemon server.js",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
   },
-. . .
+...
 ```
 
 ## proxy
