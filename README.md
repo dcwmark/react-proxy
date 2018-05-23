@@ -17,7 +17,7 @@ https://github.com/dcwmark/react-proxy.git
 
 ## concurrent
 
-react/proxy/package.json
+react-proxy/package.json
 
 ```javascript
 . . .
@@ -27,4 +27,15 @@ react/proxy/package.json
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
   },
 . . .
+```
+
+## proxy
+
+react-proxy/package.json
+
+```javascript
+...
+  "proxy": "http://localhost:5000/",
+...
+
 ```
