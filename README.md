@@ -1,3 +1,12 @@
+References:
+
+https://www.codementor.io/olatundegaruba/nodejs-restful-apis-in-10-minutes-q0sgsfhbd
+
+https://appdividend.com/2017/06/28/mern-stack-tutorial/
+
+https://appdividend.com/2017/06/28/mern-stack-tutorial/
+
+
 https://github.com/dcwmark/react-proxy.git
 
 1. mkdir [..]/react-proxy
