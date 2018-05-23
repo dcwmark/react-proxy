@@ -111,6 +111,17 @@ react-proxy/server/server.js
 ...
     bodyParser = require('body-parser'),
 ...
+/*-- routes registration begins --*/
+let commentsRoutes = require('./api/routes/comments');
+commentsRoutes(app);
+
+let postsRoutes = require('./api/routes/posts');
+postsRoutes(app);
+
+let todosRoutes = require('./api/routes/todos');
+todosRoutes(app);
+/*-- routes registration ends --*/
+...
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 

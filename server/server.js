@@ -12,6 +12,7 @@ let express = require('express'),
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
 
+/*-- routes registration begins --*/
 let commentsRoutes = require('./api/routes/comments');
 commentsRoutes(app);
 
@@ -20,6 +21,7 @@ postsRoutes(app);
 
 let todosRoutes = require('./api/routes/todos');
 todosRoutes(app);
+/*-- routes registration ends --*/
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
