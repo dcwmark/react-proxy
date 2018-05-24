@@ -71,14 +71,26 @@ react-proxy/server/server.js
 let express = require('express'),
     app = express(),
 ...
-let commentsRoutes = require('./api/routes/comments');
-commentsRoutes(app);
+let apiRoutes = require('./api/routes');
+apiRoutes(app);
+...
+```
 
-let postsRoutes = require('./api/routes/posts');
-postsRoutes(app);
+react-proxy/server/api/routes/index.js
+```javascript
+...
+module.exports = (app) => {
 
-let todosRoutes = require('./api/routes/todos');
-todosRoutes(app);
+    let commentsRoutes = require('./comments');
+    commentsRoutes(app);
+
+    let postsRoutes = require('./posts');
+    postsRoutes(app);
+
+    let todosRoutes = require('./todos');
+    todosRoutes(app);
+
+};
 ...
 ```
 
