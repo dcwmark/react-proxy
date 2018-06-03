@@ -1,4 +1,6 @@
-/* src/index.js */
+/* client/src/index.js */
+
+import 'bootstrap/dist/css/bootstrap.css';
 
 import './index.css';
 

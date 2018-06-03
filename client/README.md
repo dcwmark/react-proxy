@@ -17,6 +17,8 @@ https://lorenstewart.me/2016/11/27/a-practical-guide-to-redux/
 1. npm install --save redux-promise-middleware
 1. npm install --save redux-thunk
 1. npm install --save axios
+1. npm install --save react-bootstap bootstrap@3
+1. npm install --save popper.js
 
 ## React Router v4
 
@@ -269,3 +271,16 @@ const reducers = combineReducers({
 
 ...
 ```
+
+## react bootstrap
+
+/src/index.js
+```javascript
+...
+
+import 'bootstrap/dist/css/bootstrap.css';
+
+...
+
+```
+
