@@ -272,7 +272,7 @@ const reducers = combineReducers({
 ...
 ```
 
-## react bootstrap
+## React Bootstrap
 
 /src/index.js
 ```javascript
