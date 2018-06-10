@@ -1,9 +1,9 @@
-/* src/App.js */
-
-import './App.css';
+/* client/src/App.js */
 
 import React, { Component } from 'react';
 import { Link, Route } from 'react-router-dom';
+
+import './App.css';
 
 import Home from './Components/Home';
 import Comments from './Components/Comments';

@@ -10,7 +10,7 @@ https://lorenstewart.me/2016/11/27/a-practical-guide-to-redux/
 1. npx create-react-app react-rout-redux
 1. cd react-rout-redux/
 1. npm install --save react-router-dom
-1. npm install --save react-bootsrap
+1. npm install --save react-bootstrap
 1. npm install --save react-redux
 1. npm install --save redux
 1. npm install --save redux-logger
@@ -270,17 +270,29 @@ const reducers = combineReducers({
     posts: postsReducer,
 
 ...
+
 ```
 
 ## React Bootstrap
 
-/src/index.js
+client/src/index.js
 ```javascript
 ...
 
-import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 ...
 
 ```
 
+client/src/Components/FloatAddItem/items.js
+```javascript
+import React, { Component } from "react";
+
+import Glyphicon from 'react-bootstrap/lib/Glyphicon';
+
+...
+                <Glyphicon glyph="plus-sign" />
+...
+
+```

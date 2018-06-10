@@ -1,0 +1,10 @@
+/* client/src/Components/Comments/Comments.css */
+
+.Comments .glyphicon {
+	color: green;
+	position: fixed;
+	top: 85px;
+	right: 50px;
+	transform: scale(2.0);
+	cursor: pointer;
+}
