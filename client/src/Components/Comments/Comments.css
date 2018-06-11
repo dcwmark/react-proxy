@@ -1,10 +1,20 @@
 /* client/src/Components/Comments/Comments.css */
 
-.Comments .glyphicon {
+.Comments .float-add-item .glyphicon {
 	color: green;
 	position: fixed;
-	top: 85px;
+	top: 93px;
 	right: 50px;
 	transform: scale(2.0);
+	cursor: pointer;
+}
+
+.Comments .update-item .glyphicon {
+	color: blue;
+	cursor: pointer;
+}
+
+.Comments .delete-item .glyphicon {
+	color: red;
 	cursor: pointer;
 }
