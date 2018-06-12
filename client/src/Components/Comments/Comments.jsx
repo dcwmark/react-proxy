@@ -26,7 +26,7 @@ class Comments extends Component {
                         { this.props && this.props.comments
                           && this.props.comments.length > 0 && this.props.comments.map( each => (
                             <li className="list-group-item col-xs-12" key={each.id}>
-                                <div className="col-xs-2">
+                                <div className="col-xs-1">
                                     <div className="col-xs-6 update-item">
                                         <UpdateItem category="comment" />
                                     </div>
@@ -34,7 +34,7 @@ class Comments extends Component {
                                         <DeleteItem category="comment" />
                                     </div>
                                 </div>
-                                <div className="col-xs-10">
+                                <div className="col-xs-11">
                                     <p><b>Name:</b> <em>{each.name}</em></p>
                                     <p>{each.body}</p>
                                 </div>
