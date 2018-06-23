@@ -43,7 +43,6 @@ react-proxy/server/api/routes/index.js
 ```javascript
 ...
 module.exports = (app) => {
-
     let commentsRoutes = require('./comments');
     commentsRoutes(app);
 
@@ -52,7 +51,6 @@ module.exports = (app) => {
 
     let todosRoutes = require('./todos');
     todosRoutes(app);
-
 };
 ...
 ```
@@ -61,9 +59,24 @@ react-proxy/server/api/routes/comments/index.js
 
 ```javascript
 ...
+import * as commentsController from '../../controllers/comments';
+...
 module.exports = (app) => {
 ...
     app.route('/api/comments')
+        .get(commentsController.listComments);
+
+    app.route('/api/comments/bulkload')
+        .post(commentsController.loadComments);
+...
+```
+
+react-proxy/server/api/controllers/comments/index.js
+
+```javascript
+...
+export { listComments } from './listComments';
+export { loadComments } from './loadComments';
 ...
 ```
 
