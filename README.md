@@ -19,8 +19,6 @@ https://github.com/dcwmark/react-proxy.git
 1. npm install express --save
 1. npm install mongoose --save
 1. npm install nodemon --save-dev
-
-1. cd [..]/react-proxy
 1. npm install concurrently --save-dev
 1. npm install express --save
 

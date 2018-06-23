@@ -2,9 +2,9 @@
 
 'use strict';
 
+import * as commentsController from '../../controllers/comments';
+
 module.exports = (app) => {
-    let commentsController = require('../../controllers/comments');
-    
     app.route('/api/comments')
         .get(commentsController.listComments);
 };

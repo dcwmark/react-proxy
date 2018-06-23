@@ -2,8 +2,10 @@
 
 'use strict';
 
-export default listComments = () => {
-    return getComments();
+module.exports = {
+    listComments: (req, res) => {
+        res.json(getComments());
+    },
 };
 
 let getComments = () => {

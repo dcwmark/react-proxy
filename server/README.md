@@ -132,3 +132,24 @@ Create .babelrc
 }
 ```
 
+react-proxy/server/server.js
+
+```javascript
+...
+require("babel-register");
+...
+```
+
+react-proxy/server/spi/routes/comments/index.js
+
+```javascript
+...
+import * as commentsController from '../../controllers/comments';
+
+module.exports = (app) => {
+    app.route('/api/comments')
+        .get(commentsController.listComments);
+};
+...
+```
+

@@ -2,6 +2,4 @@
 
 'use strict';
 
-import listComments from './listComments';
-
-export.listComments;
+export { listComments } from './listComments';
