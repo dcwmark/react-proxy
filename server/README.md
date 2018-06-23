@@ -1,10 +1,16 @@
 <!-- server/READ.me -->
 
+Reference:
+
+https://github.com/babel/example-node-server
+
 1. npm install body-parser --save
 1. npm install express --save
 1. npm install mongoose --save
 1. npm install nodemon --save-dev
-1. npm install morgan --save 		// An http request logger middleware for Node.js
+1. npm install morgan --save 
+1. npm install babel-register --save-dev
+1. npm install babel-preset-env --save-dev		
 
 ## nodemon
 
@@ -107,5 +113,22 @@ app.use(function(req, res) {
   res.status(404).send({ url: req.originalUrl + ' not found' })
 });
 ...
+```
+
+## morgan -- An http request logger middleware for Node.js
+
+## babel-register
+
+Usage
+```javascript
+require("babel-register");
+```
+All subsequent files required by node with the extensions .es6, .es, .jsx and .js will be transformed by Babel.
+
+Create .babelrc
+```javascript
+{
+  "presets": ["env"]
+}
 ```
 
