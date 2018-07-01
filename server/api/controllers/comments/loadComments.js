@@ -7,7 +7,9 @@ import Comment from '../../models';
 module.exports = {
 	loadComments: (req, res) => {
 
+        console.log('about to drop ...');
         Comment.collection.drop();
+        console.log('after drop ...');
 
         Comment.collection.insert(getComments())
         .then( resolve => {

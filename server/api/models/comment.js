@@ -8,7 +8,6 @@ const Schema = mongoose.Schema;
 const CommentSchema = new Schema({
 	postId: {
 		type: Number,
-		unique: true,
 	},
 	name: String,
 	email: {
