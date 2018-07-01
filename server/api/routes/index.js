@@ -3,7 +3,6 @@
 'use strict';
 
 module.exports = (app) => {
-
     let commentsRoutes = require('./comments');
     commentsRoutes(app);
 
@@ -12,5 +11,4 @@ module.exports = (app) => {
 
     let todosRoutes = require('./todos');
     todosRoutes(app);
-
 };

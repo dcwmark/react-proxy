@@ -7,6 +7,7 @@ https://github.com/babel/example-node-server
 1. npm install body-parser --save
 1. npm install express --save
 1. npm install mongoose --save
+1. npm install validator --save
 1. npm install nodemon --save-dev
 1. npm install morgan --save 
 1. npm install babel-register --save-dev
