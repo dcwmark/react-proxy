@@ -161,13 +161,28 @@ module.exports = (app) => {
 ...
 ```
 
+react-proxy/server/api/controllers/posts/index.js
+
+```javascript
+...
+export { listPosts } from './listPosts';
+export { loadPosts } from './loadPosts';
+...
+```
+
 react-proxy/server/api/routes/todos/index.js
 
 ```javascript
 ...
+import * as todosController = require('../../controllers/todos');
+...
 module.exports = (app) => {
 ...
     app.route('/api/todos')
+        .get(todosController.listTodos);
+
+    app.route('/api/todos/bulkload')
+        .get(todosController.loadTodos);
 ...
 ```
 
