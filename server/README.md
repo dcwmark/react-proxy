@@ -62,6 +62,34 @@ react-proxy/server/package.json
 ...
 ```
 
+## node middleware -- body-parser
+
+react-proxy/server/server.js
+
+```javascript
+...
+    bodyParser = require('body-parser'),
+...
+/*-- routes registration begins --*/
+let commentsRoutes = require('./api/routes/comments');
+commentsRoutes(app);
+
+let postsRoutes = require('./api/routes/posts');
+postsRoutes(app);
+
+let todosRoutes = require('./api/routes/todos');
+todosRoutes(app);
+/*-- routes registration ends --*/
+...
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+app.use(function(req, res) {
+  res.status(404).send({ url: req.originalUrl + ' not found' })
+});
+...
+```
+
 ## express routes
 
 react-proxy/server/server.js
@@ -140,34 +168,6 @@ react-proxy/server/api/routes/todos/index.js
 module.exports = (app) => {
 ...
     app.route('/api/todos')
-...
-```
-
-## node middleware -- body-parser
-
-react-proxy/server/server.js
-
-```javascript
-...
-    bodyParser = require('body-parser'),
-...
-/*-- routes registration begins --*/
-let commentsRoutes = require('./api/routes/comments');
-commentsRoutes(app);
-
-let postsRoutes = require('./api/routes/posts');
-postsRoutes(app);
-
-let todosRoutes = require('./api/routes/todos');
-todosRoutes(app);
-/*-- routes registration ends --*/
-...
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-
-app.use(function(req, res) {
-  res.status(404).send({ url: req.originalUrl + ' not found' })
-});
 ...
 ```
 
