@@ -1,20 +1,19 @@
-/* server/api/models/comments.js */
+/* server/api/models/todo.js */
 
 'use strict';
 
 import mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;
-const commentSchema = new Schema({
-	postId: {
+const todoSchema = new Schema({
+	userId: {
 		type: Number,
 	},
-	name: String,
-	email: {
-		type: String,
-		unique: true,
+	title: String,
+	completed: {
+		type: Boolean,
+		default: false,
 	},
-	body: String,
 	createdOn: {
 		type: Date,
 		default: Date.now,
@@ -37,6 +36,6 @@ const commentSchema = new Schema({
 	},
 });
 
-const Comment = mongoose.model('Comment', commentSchema);
+const Todo = mongoose.model('Todo', todoSchema);
 
-module.exports = Comment;
+module.exports = Todo;

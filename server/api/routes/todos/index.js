@@ -2,9 +2,12 @@
 
 'use strict';
 
-module.exports = (app) => {
-    let todosController = require('../../controllers/todos');
+import * as todosController from '../../controllers/todos';
 
+module.exports = (app) => {
     app.route('/api/todos')
         .get(todosController.listTodos);
+
+    app.route('/api/todos/bulkload')
+        .get(todosController.loadTodos);
 };

@@ -1,19 +1,15 @@
-/* server/api/models/comments.js */
+/* server/api/models/post.js */
 
 'use strict';
 
 import mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;
-const commentSchema = new Schema({
-	postId: {
+const postSchema = new Schema({
+	userId: {
 		type: Number,
 	},
-	name: String,
-	email: {
-		type: String,
-		unique: true,
-	},
+	title: String,
 	body: String,
 	createdOn: {
 		type: Date,
@@ -37,6 +33,6 @@ const commentSchema = new Schema({
 	},
 });
 
-const Comment = mongoose.model('Comment', commentSchema);
+const Post = mongoose.model('Post', postSchema);
 
-module.exports = Comment;
+module.exports = Post;
