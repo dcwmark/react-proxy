@@ -195,6 +195,46 @@ export { loadTodos } from './loadTodos';
 ...
 ```
 
+react-proxy/server/api/models/index.js
+
+```javascript
+...
+import Comment from './comment';
+module.exports = Comment;
+
+import Post from './post';
+module.exports = Post;
+
+import Todo from './todo';
+module.exports = Todo;
+...
+```
+
+react-proxy/server/api/controller/loadComments.js
+
+```javascript
+...
+import Comment from '../../models';
+...
+```
+
+react-proxy/server/api/controller/loadPosts.js
+
+```javascript
+...
+import Post from '../../models';
+...
+```
+
+react-proxy/server/api/controller/loadTodos.js
+
+```javascript
+...
+import Todo from '../../models';
+...
+```
+
+
 ## morgan -- An http request logger middleware for Node.js
 
 
