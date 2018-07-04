@@ -186,6 +186,15 @@ module.exports = (app) => {
 ...
 ```
 
+react-proxy/server/api/controllers/todos/index.js
+
+```javascript
+...
+export { listTodos } from './listTodos';
+export { loadTodos } from './loadTodos';
+...
+```
+
 ## morgan -- An http request logger middleware for Node.js
 
 
