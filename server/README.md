@@ -13,6 +13,42 @@ https://github.com/babel/example-node-server
 1. npm install babel-register --save-dev
 1. npm install babel-preset-env --save-dev		
 
+## babel-register
+
+Usage
+```javascript
+require("babel-register");
+```
+All subsequent files required by node with the extensions .es6, .es, .jsx and .js will be transformed by Babel.
+
+Create .babelrc
+```javascript
+{
+  "presets": ["env"]
+}
+```
+
+react-proxy/server/server.js
+
+```javascript
+...
+require("babel-register");
+...
+```
+
+react-proxy/server/spi/routes/comments/index.js
+
+```javascript
+...
+import * as commentsController from '../../controllers/comments';
+
+module.exports = (app) => {
+    app.route('/api/comments')
+        .get(commentsController.listComments);
+};
+...
+```
+
 ## nodemon
 
 react-proxy/server/package.json
@@ -85,9 +121,15 @@ react-proxy/server/api/routes/posts/index.js
 
 ```javascript
 ...
+import * postsController from '../../controllers/posts';
+...
 module.exports = (app) => {
 ...
     app.route('/api/posts')
+        .get(postsController.listPosts);
+
+    app.route('/api/posts/bulkload')
+        .get(postsController.loadPosts);
 ...
 ```
 
@@ -131,39 +173,4 @@ app.use(function(req, res) {
 
 ## morgan -- An http request logger middleware for Node.js
 
-## babel-register
-
-Usage
-```javascript
-require("babel-register");
-```
-All subsequent files required by node with the extensions .es6, .es, .jsx and .js will be transformed by Babel.
-
-Create .babelrc
-```javascript
-{
-  "presets": ["env"]
-}
-```
-
-react-proxy/server/server.js
-
-```javascript
-...
-require("babel-register");
-...
-```
-
-react-proxy/server/spi/routes/comments/index.js
-
-```javascript
-...
-import * as commentsController from '../../controllers/comments';
-
-module.exports = (app) => {
-    app.route('/api/comments')
-        .get(commentsController.listComments);
-};
-...
-```
 
