@@ -2,19 +2,24 @@
 
 'use strict';
 
-import Comment from '../../models';
+import * as models from '../../models';
 
 module.exports = {
 	loadComments: (req, res) => {
 
-        Comment.collection.drop();
+        const comment = models.Comment;
+        comment.collection.drop()
+        .catch( reject => {
+            console.log(reject);
+        });
 
-        Comment.collection.insert(getComments())
+        comment.collection.insert(getComments())
         .then( resolve => {
             res.json(resolve);
-        }).catch( reject => {
-			res.json(reject);
-		});
+        })
+        .catch( reject => {
+            res.json(reject);
+        });
 
     },
 };
@@ -24,7 +29,7 @@ let getComments = () => {
         {
           "postId": 1,
           "id": 1,
-          "name": "id labore ex et 5000 laborum",
+          "name": "db comments id labore ex et 5000 laborum",
           "email": "Eliseo@local5000.biz",
           "body": "laudantium enim quasi est quidem magnam voluptate ipsam eos\ntempora quo necessitatibus\ndolor quam autem quasi\nreiciendis et nam sapiente accusantium"
         },

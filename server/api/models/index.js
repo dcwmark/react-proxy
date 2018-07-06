@@ -2,6 +2,8 @@
 
 'use strict';
 
-import Comment from './comment';
-module.exports = Comment;
+export { Comment } from './comment';
 
+export { Post } from './post';
+
+export { Todo } from './todo';

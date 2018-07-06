@@ -2,9 +2,25 @@
 
 'use strict';
 
+import * as models from '../../models';
+
 module.exports = {
-	listPosts: (req, res) => {
-    	res.json(getPosts());
+    loadPosts: (req, res) => {
+
+        const post = models.Post;
+        post.collection.drop()
+        .catch( reject => {
+            console.log(reject);
+        });
+
+        post.collection.insert(getPosts())
+        .then( resolve => {
+            res.json(resolve);
+        })
+        .catch( reject => {
+            res.json(reject);
+        });
+
     },
 };
 
@@ -13,7 +29,7 @@ let getPosts = () => {
         {
           "userId": 1,
           "id": 1,
-          "title": "sunt aut 5000 facere repellat provident occaecati excepturi optio reprehenderit",
+          "title": "db posts sunt aut 5000 facere repellat provident occaecati excepturi optio reprehenderit",
           "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
         },
         {

@@ -1,4 +1,4 @@
-/* server/api/models/comments.js */
+/* server/api/models/comment.js */
 
 'use strict';
 
@@ -39,4 +39,4 @@ const commentSchema = new Schema({
 
 const Comment = mongoose.model('Comment', commentSchema);
 
-module.exports = Comment;
+module.exports = { Comment: Comment };

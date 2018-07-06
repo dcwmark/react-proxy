@@ -2,8 +2,26 @@
 
 'use strict';
 
-exports.listTodos = (req, res) => {
-    res.json(getTodos());
+import * as models from '../../models';
+
+module.exports = {
+    loadTodos: (req, res) => {
+
+        const todo = models.Todo;
+        todo.collection.drop()
+        .catch( reject => {
+            console.log(reject);
+        });
+
+        todo.collection.insert(getTodos())
+        .then( resolve => {
+            res.json(resolve);
+        })
+        .catch( reject => {
+            res.json(reject);
+        });
+
+    },
 };
 
 let getTodos = () => {
@@ -11,7 +29,7 @@ let getTodos = () => {
         {
           "userId": 1,
           "id": 1,
-          "title": "delectus 5000 aut autem",
+          "title": "db todos delectus 5000 aut autem",
           "completed": false
         },
         {

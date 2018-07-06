@@ -9,5 +9,5 @@ module.exports = (app) => {
         .get(todosController.listTodos);
 
     app.route('/api/todos/bulkload')
-        .get(todosController.loadTodos);
+        .post(todosController.loadTodos);
 };
