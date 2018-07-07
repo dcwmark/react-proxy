@@ -5,7 +5,7 @@
 import * as models from '../../models';
 
 module.exports = {
-  listPosts: (req, res) => {
+    listPosts: (req, res) => {
         const post = models.Post;
         post.find({})
         .then( resolve=> {

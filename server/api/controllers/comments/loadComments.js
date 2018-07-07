@@ -5,7 +5,7 @@
 import * as models from '../../models';
 
 module.exports = {
-	loadComments: (req, res) => {
+    loadComments: (req, res) => {
         const comment = models.Comment;
         comment.collection.drop()
         .catch( reject => {
