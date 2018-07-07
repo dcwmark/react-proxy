@@ -288,7 +288,7 @@ const commentSchema = new Schema({
 ...
 const Comment = mongoose.model('Comment', commentSchema);
 
-module.exports = { Comment: Comment };
+module.exports = { Comment: comment };
 ...
 ```
 
@@ -303,7 +303,7 @@ const postSchema = new Schema({
 ...
 const Post = mongoose.model('Post', postSchema);
 
-module.exports = { Post: Post };
+module.exports = { Post: post };
 ...
 ```
 
@@ -318,7 +318,7 @@ const todoSchema = new Schema({
 ...
 const Todo = mongoose.model('Todo', todoSchema);
 
-module.exports = { Todo: Todo };
+module.exports = { Todo: todo };
 ...
 ```
 
