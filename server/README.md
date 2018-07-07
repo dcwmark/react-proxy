@@ -132,6 +132,34 @@ export { loadComments } from './loadComments';
 ...
 ```
 
+react-proxy/server/api/controller/listComments.js
+
+```javascript
+...
+import * as models from '../../models';
+
+module.exports = {
+    listComments: (req, res) => {
+        const comment = models.Comment;
+        comment.find({})
+...
+```
+
+react-proxy/server/api/controller/loadComments.js
+
+```javascript
+...
+import * as models from '../../models';
+
+module.exports = {
+    loadComments: (req, res) => {
+        const comment = models.Comment;
+        comment.collection.drop()
+...
+        comment.collection.insert(getComments())
+...
+```
+
 react-proxy/server/api/routes/posts/index.js
 
 ```javascript
@@ -154,6 +182,33 @@ react-proxy/server/api/controllers/posts/index.js
 ...
 export { listPosts } from './listPosts';
 export { loadPosts } from './loadPosts';
+...
+```
+react-proxy/server/api/controller/listPosts.js
+
+```javascript
+...
+import * as models from '../../models';
+
+module.exports = {
+    listPosts: (req, res) => {
+        const post = models.Post;
+        post.find({})
+...
+```
+
+react-proxy/server/api/controller/loadPosts.js
+
+```javascript
+...
+import * as models from '../../models';
+
+module.exports = {
+    loadPosts: (req, res) => {
+        const post = models.Post;
+        post.collection.drop()
+...
+        post.collection.insert(getPosts())
 ...
 ```
 
@@ -182,45 +237,16 @@ export { loadTodos } from './loadTodos';
 ...
 ```
 
-react-proxy/server/api/models/index.js
-
-```javascript
-...
-import { Comment } from './comment';
-
-import { Post } from './post';
-
-import { Todo } from './todo';
-...
-```
-
-react-proxy/server/api/controller/loadComments.js
+react-proxy/server/api/controller/listTodos.js
 
 ```javascript
 ...
 import * as models from '../../models';
 
 module.exports = {
-    loadComments: (req, res) => {
-        const comment = models.Comment;
-        comment.collection.drop()
-...
-        comment.collection.insert(getComments())
-...
-```
-
-react-proxy/server/api/controller/loadPosts.js
-
-```javascript
-...
-import * as models from '../../models';
-
-module.exports = {
-    loadPosts: (req, res) => {
-        const post = models.Post;
-        post.collection.drop()
-...
-        post.collection.insert(getPosts())
+    listTodos: (req, res) => {
+        const todo = models.Todo;
+        todo.find({})
 ...
 ```
 
@@ -239,42 +265,15 @@ module.exports = {
 ...
 ```
 
-react-proxy/server/api/controller/listComments.js
+react-proxy/server/api/models/index.js
 
 ```javascript
 ...
-import * as models from '../../models';
+import { Comment } from './comment';
 
-module.exports = {
-    listComments: (req, res) => {
-        const comment = models.Comment;
-        comment.find({})
-...
-```
+import { Post } from './post';
 
-react-proxy/server/api/controller/listPosts.js
-
-```javascript
-...
-import * as models from '../../models';
-
-module.exports = {
-    listPosts: (req, res) => {
-        const post = models.Post;
-        post.find({})
-...
-```
-
-react-proxy/server/api/controller/listTodos.js
-
-```javascript
-...
-import * as models from '../../models';
-
-module.exports = {
-    listTodos: (req, res) => {
-        const todo = models.Todo;
-        todo.find({})
+import { Todo } from './todo';
 ...
 ```
 
