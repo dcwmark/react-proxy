@@ -6,7 +6,6 @@ import * as models from '../../models';
 
 module.exports = {
     loadTodos: (req, res) => {
-
         const todo = models.Todo;
         todo.collection.drop()
         .catch( reject => {
@@ -20,7 +19,6 @@ module.exports = {
         .catch( reject => {
             res.json(reject);
         });
-
     },
 };
 

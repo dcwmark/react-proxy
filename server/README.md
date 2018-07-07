@@ -199,14 +199,11 @@ react-proxy/server/api/models/index.js
 
 ```javascript
 ...
-import Comment from './comment';
-module.exports = Comment;
+import { Comment } from './comment';
 
-import Post from './post';
-module.exports = Post;
+import { Post } from './post';
 
-import Todo from './todo';
-module.exports = Todo;
+import { Todo } from './todo';
 ...
 ```
 
@@ -214,7 +211,14 @@ react-proxy/server/api/controller/loadComments.js
 
 ```javascript
 ...
-import Comment from '../../models';
+import * as models from '../../models';
+
+module.exports = {
+    loadComments: (req, res) => {
+        const comment = models.Comment;
+        comment.collection.drop()
+...
+        comment.collection.insert(getComments())
 ...
 ```
 
@@ -222,7 +226,14 @@ react-proxy/server/api/controller/loadPosts.js
 
 ```javascript
 ...
-import Post from '../../models';
+import * as models from '../../models';
+
+module.exports = {
+    loadPosts: (req, res) => {
+        const post = models.Post;
+        post.collection.drop()
+...
+        post.collection.insert(getPosts())
 ...
 ```
 
@@ -230,7 +241,98 @@ react-proxy/server/api/controller/loadTodos.js
 
 ```javascript
 ...
-import Todo from '../../models';
+import * as models from '../../models';
+
+module.exports = {
+    loadTodos: (req, res) => {
+        const todo = models.Todo;
+        todo.collection.drop()
+...
+        todo.collection.insert(getTodos())
+...
+```
+
+react-proxy/server/api/controller/listComments.js
+
+```javascript
+...
+import * as models from '../../models';
+
+module.exports = {
+    listComments: (req, res) => {
+        const comment = models.Comment;
+        comment.find({})
+...
+```
+
+react-proxy/server/api/controller/listPosts.js
+
+```javascript
+...
+import * as models from '../../models';
+
+module.exports = {
+    listPosts: (req, res) => {
+        const post = models.Post;
+        post.find({})
+...
+```
+
+react-proxy/server/api/controller/listTodos.js
+
+```javascript
+...
+import * as models from '../../models';
+
+module.exports = {
+    listTodos: (req, res) => {
+        const todo = models.Todo;
+        todo.find({})
+...
+```
+
+react-proxy/server/api/models/comment.js
+
+```javascript
+...
+import mongoose from 'mongoose';
+
+const Schema = mongoose.Schema;
+const commentSchema = new Schema({
+...
+const Comment = mongoose.model('Comment', commentSchema);
+
+module.exports = { Comment: Comment };
+...
+```
+
+react-proxy/server/api/models/post.js
+
+```javascript
+...
+import mongoose from 'mongoose';
+
+const Schema = mongoose.Schema;
+const postSchema = new Schema({
+...
+const Post = mongoose.model('Post', postSchema);
+
+module.exports = { Post: Post };
+...
+```
+
+react-proxy/server/api/models/todo.js
+
+```javascript
+...
+import mongoose from 'mongoose';
+
+const Schema = mongoose.Schema;
+const todoSchema = new Schema({
+...
+const Todo = mongoose.model('Todo', todoSchema);
+
+module.exports = { Todo: Todo };
 ...
 ```
 

@@ -6,7 +6,6 @@ import * as models from '../../models';
 
 module.exports = {
     loadPosts: (req, res) => {
-
         const post = models.Post;
         post.collection.drop()
         .catch( reject => {
@@ -20,7 +19,6 @@ module.exports = {
         .catch( reject => {
             res.json(reject);
         });
-
     },
 };
 
