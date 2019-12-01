@@ -1,6 +1,6 @@
 /* server/api/routes/index.js */
 
-'use strict';
+"use strict";
 
 module.exports = (app) => {
     let commentsRoutes = require('./comments');

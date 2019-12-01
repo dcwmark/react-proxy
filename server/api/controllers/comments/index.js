@@ -1,6 +1,6 @@
 /* server/api/controllers/comments/index.js */
 
-'use strict';
+"use strict";
 
 export { listComments } from './listComments';
 export { loadComments } from './loadComments';
