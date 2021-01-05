@@ -5,7 +5,7 @@
   "proxy": "http://localhost:5000/",
   "dependencies": {
     "ajv": "^6.4.0",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "bootstrap": "^3.3.7",
     "jquery": "^3.3.1",
     "popper": "^1.0.1",
